@@ -4,13 +4,13 @@ console.log('App.js is running!');
 // ternary operators
 // logical and operator
 
-var app = {
+const app = {
 	title: 'Indecision app',
 	subtitle: 'Put your life in the hands of a computer',
 	options: ['One', "Two"]
 };
 
-var template = (
+const template = (
 	<div>
 		<h1>{app.title}</h1>
 		{app.subtitle && <p>{app.subtitle}</p>}
@@ -22,7 +22,7 @@ var template = (
 	</div>
 );
 
-var user = {
+const user = {
 	name: 'Schead',
 	age: 26,
 	location: 'Florianpolx'
@@ -34,7 +34,7 @@ function getLocation(location) {
 	}
 }
 
-var templateTwo = (
+const templateTwo = (
 	<div>
 		<h1>{user.name ? user.name : 'Anonymous'}</h1>
 		{(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
@@ -42,6 +42,6 @@ var templateTwo = (
 	</div>
 );
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(template, appRoot);

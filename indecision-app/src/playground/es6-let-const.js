@@ -1,18 +1,17 @@
-'use strict';
-
 var nameVar = 'Andrew';
 var nameVar = 'Mike';
 console.log('nameVar', nameVar);
 
-var nameLet = 'Jen';
+let nameLet = 'Jen';
 // ES6 doesn't allow to redefine variable
 // let nameLet = 'Jullie';
 console.log('nameLet', nameLet);
 
-var nameConst = 'Frank';
+const nameConst = 'Frank';
 // ES6 doesn't allow to redefine and reassign variable
 //nameConst = 'Gunther';
 console.log('nameConst', nameConst);
+
 
 // Normal scoping in functions
 function getPetName() {
@@ -23,7 +22,7 @@ function getPetName() {
 // Results in undefined, out of scope
 console.log(petName);
 
-var petName = getPetName();
+const petName = getPetName();
 // console.log(petName);
 
 
@@ -37,13 +36,14 @@ if (varFullName) {
 
 console.log(varFirstName);
 
+
 // Block scoping (let and const)
-var constFullName = 'Andrews Mead';
-var letFirstName = 'Marcos';
+const constFullName = 'Andrews Mead';
+let letFirstName = 'Marcos';
 
 if (constFullName) {
-	var _letFirstName = constFullName.split(' ')[0];
-	console.log(_letFirstName);
+	let letFirstName = constFullName.split(' ')[0];
+	console.log(letFirstName);
 }
 
 // Different value from the variable inside the if
