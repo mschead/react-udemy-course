@@ -1,75 +1,95 @@
 'use strict';
 
-// arguments object - no longer bound with arrow functions
+console.log('App.js is running!');
 
-var add = function add(a, b) {
-	console.log(arguments);
-	return a + b;
+// if statements
+// ternary operators
+// logical and operator
+
+var app = {
+	title: 'Indecision app',
+	subtitle: 'Put your life in the hands of a computer',
+	options: ['One', "Two"]
 };
 
-var addArrow = function addArrow(a, b) {
-	// console.log(arguments);
-	return a + b;
+var template = React.createElement(
+	'div',
+	null,
+	React.createElement(
+		'h1',
+		null,
+		app.title
+	),
+	app.subtitle && React.createElement(
+		'p',
+		null,
+		app.subtitle
+	),
+	React.createElement(
+		'p',
+		null,
+		app.options.length > 0 ? 'Here are your options' : 'No options'
+	),
+	React.createElement(
+		'ol',
+		null,
+		React.createElement(
+			'li',
+			null,
+			'Item one'
+		),
+		React.createElement(
+			'li',
+			null,
+			'Item two'
+		)
+	)
+);
+
+var count = 0;
+
+var addOne = function addOne() {
+	console.log('addOne');
 };
 
-console.log(add(55, 1));
-console.log(addArrow(55, 1));
-
-// this keyword - no longer bound
-// Use ES5 when needed
-
-var user = {
-	name: 'Marcos',
-	cities: ['Florianoplx', "Palioza", 'Biguaci'],
-	printPlacesLived: function printPlacesLived() {
-		var _this = this;
-
-		// Results in error, because this doesn't bound
-		// this.cities.forEach(function (city) {
-		// 	console.log(this.name + 'has lived in' + city);
-		// });
-
-		this.cities.forEach(function (city) {
-			console.log(_this.name + ' has lived in ' + city);
-		});
-	},
-	printPlacesLivedArrow: function printPlacesLivedArrow() {
-		// Doesn't bound in the same way as above
-		// this.cities.forEach((city) => {
-		// 	console.log(this.name + ' has lived in ' + city);
-		// });
-	},
-
-	printPlacesLivedArrowCleaner: function printPlacesLivedArrowCleaner() {
-		var _this2 = this;
-
-		return this.cities.map(function (city) {
-			return _this2.name + ' has lived in ' + city;
-		});
-
-		// this.cities.forEach((city) => {
-		// 	console.log(this.name + ' has lived in ' + city);
-		// });
-	}
+var minusOne = function minusOne() {
+	console.log('minusOne');
 };
 
-console.log(user.printPlacesLivedArrowCleaner());
-
-// Challenge area
-
-var multiplier = {
-	// numbers - array of numbers
-	// multiplyBy - single number
-	// multiply - return a new array where the numbers have been multiplied
-	numbers: [10, 20, 30],
-	multiplyBy: 3,
-	multiply: function multiply() {
-		var _this3 = this;
-
-		return this.numbers.map(function (number) {
-			return number * _this3.multiplyBy;
-		});
-	}
+var reset = function reset() {
+	console.log('reset');
 };
 
-console.log(multiplier.multiply());
+var templateTwo = React.createElement(
+	'div',
+	null,
+	React.createElement(
+		'h1',
+		null,
+		'Count: ',
+		count
+	),
+	React.createElement(
+		'button',
+		{ onClick: addOne },
+		'+1'
+	),
+	React.createElement(
+		'button',
+		{ onClick: minusOne },
+		'-1'
+	),
+	React.createElement(
+		'button',
+		{ onClick: reset },
+		'reset'
+	)
+);
+
+// Challenge
+// Make button "-1" - setup minusOne function and register - log "minusOne"
+// Make reset button "reset" - setup reset function - log "reset"
+
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(templateTwo, appRoot);
