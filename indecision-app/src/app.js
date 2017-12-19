@@ -24,9 +24,6 @@ const onRemoveAll = () => {
 	render();
 };
 
-// create "Remove All" button above list
-// on click - wipe the array -> rerender
-
 const appRoot = document.getElementById('app');
 
 const render = () => {
@@ -37,10 +34,13 @@ const render = () => {
 			<p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
 			<p>{app.options.length}</p>
 			<button onClick={onRemoveAll}>Remove All</button>
+
 			<ol>
-				<li>Item one</li>
-				<li>Item two</li>
+				{
+					app.options.map((option) => <li key={option}>{option}</li>)
+				}
 			</ol>
+
 			<form onSubmit={onFormSubmit}>
 				<input type="text" name="option"/>
 				<button>Add Option</button>
@@ -52,8 +52,3 @@ const render = () => {
 };
 
 render();
-
-
-// Create render function that renders the new jsx
-// Call it right away
-// Call it after options array added to

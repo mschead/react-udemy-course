@@ -25,9 +25,6 @@ var onRemoveAll = function onRemoveAll() {
 	render();
 };
 
-// create "Remove All" button above list
-// on click - wipe the array -> rerender
-
 var appRoot = document.getElementById('app');
 
 var render = function render() {
@@ -62,16 +59,13 @@ var render = function render() {
 		React.createElement(
 			'ol',
 			null,
-			React.createElement(
-				'li',
-				null,
-				'Item one'
-			),
-			React.createElement(
-				'li',
-				null,
-				'Item two'
-			)
+			app.options.map(function (option) {
+				return React.createElement(
+					'li',
+					{ key: option },
+					option
+				);
+			})
 		),
 		React.createElement(
 			'form',
@@ -89,7 +83,3 @@ var render = function render() {
 };
 
 render();
-
-// Create render function that renders the new jsx
-// Call it right away
-// Call it after options array added to
