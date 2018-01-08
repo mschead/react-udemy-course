@@ -1,3 +1,15 @@
+const obj = {
+	name: 'Vikram',
+	getName() {
+		return this.name;
+	}
+};
+
+// bind a context to the object, otherwise it will fail!
+const getName = obj.getName.bind({name: 'Schead'});
+console.log(getName());
+
+
 class IndecisionApp extends React.Component {
 	render() {
 		const title = 'Indecision';
@@ -42,14 +54,16 @@ class Action extends React.Component {
 
 }
 
-// Add Remove All button
-// Setup handleRemoveAll -> alert some message
-// Setup onClick to fire the method
-
 class Options extends React.Component {
 	
+	constructor(props) {
+		super(props);
+		this.handleRemoveAll = this.handleRemoveAll.bind(this);
+	}
+
 	handleRemoveAll() {
 		alert('handleRemoveAll');
+		console.log(this.props.options);
 	}
 
 	render() {
@@ -74,11 +88,6 @@ class Option extends React.Component {
 		);
 	}
 }
-
-
-// 1. Setup the form with the text input and submit form
-// 2. Wire up onSubmit
-// 3. handleAddOption -> fetch the value typed -> if value, then alert
 
 class AddOption extends React.Component {
 	
