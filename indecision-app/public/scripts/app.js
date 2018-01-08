@@ -19,23 +19,38 @@ var Counter = function (_React$Component) {
 		_this.handleAddOne = _this.handleAddOne.bind(_this);
 		_this.handleMinusOne = _this.handleMinusOne.bind(_this);
 		_this.handleReset = _this.handleReset.bind(_this);
+		_this.state = {
+			count: 0
+		};
 		return _this;
 	}
 
 	_createClass(Counter, [{
 		key: 'handleAddOne',
 		value: function handleAddOne() {
-			console.log('handleAddOne');
+			this.setState(function (prevState) {
+				return {
+					count: prevState.count + 1
+				};
+			});
 		}
 	}, {
 		key: 'handleMinusOne',
 		value: function handleMinusOne() {
-			console.log('handleMinusOne');
+			this.setState(function (prevState) {
+				return {
+					count: prevState.count - 1
+				};
+			});
 		}
 	}, {
 		key: 'handleReset',
 		value: function handleReset() {
-			console.log('handleResetOne');
+			this.setState(function () {
+				return {
+					count: 0
+				};
+			});
 		}
 	}, {
 		key: 'render',
@@ -46,7 +61,8 @@ var Counter = function (_React$Component) {
 				React.createElement(
 					'h1',
 					null,
-					'Count: '
+					'Count: ',
+					this.state.count
 				),
 				React.createElement(
 					'button',
@@ -70,41 +86,4 @@ var Counter = function (_React$Component) {
 	return Counter;
 }(React.Component);
 
-// Create three methods: handleAddOne, handleMinusOne, handleReset
-// Use console.log to print method name
-// Wire up onClick & bind in the constructor
-
 ReactDOM.render(React.createElement(Counter, null), document.getElementById('app'));
-
-// let count = 0;
-
-// const addOne = () => {
-// 	count++;
-// 	renderCounterApp()
-// };
-
-// const minusOne = () => {
-// 	count--;
-// 	renderCounterApp()
-// };
-
-// const reset = () => {
-// 	count = 0
-// 	renderCounterApp()
-// };
-
-
-// const renderCounterApp = () => {
-// 	const templateTwo = (
-// 		<div>
-// 			<h1>Count: {count}</h1>
-// 			<button onClick={addOne}>+1</button>
-// 			<button onClick={minusOne}>-1</button>
-// 			<button onClick={reset}>reset</button>
-// 		</div>
-// 	);
-
-// 	ReactDOM.render(templateTwo, appRoot);
-// };
-
-// renderCounterApp();
