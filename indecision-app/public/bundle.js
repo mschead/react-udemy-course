@@ -75,57 +75,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 console.log('app.js is running!');
-console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* square */](4));
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["c" /* square */](4));
 console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](100, 23));
-
-// person.js
-// named export isAdult(18) - true if 18 and over, otherwise false
-// named export canDrink(18) - true if 15 and over, otherwise false
-
-// import isAdult and canDrink
-// use both printing result to the console
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* default */](100, 20));
 
 
 
-console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["b" /* isAdult */](17));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["c" /* isAdult */](17));
 console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* canDrink */](20));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["b" /* default */](64));
 
+// Setting the default export and function
+// Grab the default and call it
 
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return square; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
 console.log('utils.js is running!');
 
 const square = (x) => x * x;
+/* harmony export (immutable) */ __webpack_exports__["c"] = square;
+
  
 const add = (a, b) => a + b;
+/* harmony export (immutable) */ __webpack_exports__["a"] = add;
+
+
+const subtract = (a, b) => a - b;
+/* harmony default export */ __webpack_exports__["b"] = (subtract);
+
+// or could use:
+// export default (a, b) => a - b;
+
+// export { square, add, subtract as default };
 
 // exports - default export - named exports
-
-
-// instead, you could use:
-// export const square = (x) => x * x;
-// export const add = (a, b) => a + b;
-
 
 /***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isAdult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isCitizenSenior; });
 const isAdult = (age) => age > 18;
-/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
-
 const canDrink = (age) => age > 15;
-/* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
+const isCitizenSenior = (age) => age > 60;
 
 
-// instead, you could use:
-// export { isAdult, canDrink };
 
 /***/ })
 /******/ ]);
