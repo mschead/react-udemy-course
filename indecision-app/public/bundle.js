@@ -65,9 +65,67 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__person_js__ = __webpack_require__(2);
+// import './utils.js';
+
 
 console.log('app.js is running!');
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* square */](4));
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](100, 23));
+
+// person.js
+// named export isAdult(18) - true if 18 and over, otherwise false
+// named export canDrink(18) - true if 15 and over, otherwise false
+
+// import isAdult and canDrink
+// use both printing result to the console
+
+
+
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["b" /* isAdult */](17));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* canDrink */](20));
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return square; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
+console.log('utils.js is running!');
+
+const square = (x) => x * x;
+ 
+const add = (a, b) => a + b;
+
+// exports - default export - named exports
+
+
+// instead, you could use:
+// export const square = (x) => x * x;
+// export const add = (a, b) => a + b;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const isAdult = (age) => age > 18;
+/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
+
+const canDrink = (age) => age > 15;
+/* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
+
+
+// instead, you could use:
+// export { isAdult, canDrink };
 
 /***/ })
 /******/ ]);
