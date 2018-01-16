@@ -1,3 +1,7 @@
+//
+// Object destructuring
+//
+
 const person = {
   // name: 'Schead',
   age: 27,
@@ -28,3 +32,17 @@ const book = {
 
 const {name: publisherName = 'Self-Published'} = book.publisher;
 console.log(publisherName); // Penguin, Self-Published
+
+
+//
+// Array destructuring
+//
+
+const address = ['1299 S Juniper Street', 'Philadeplhia', 'Pennsylvania', '19147']
+const [, yourCity, state = 'New York'] = address;
+console.log(`You are in ${yourCity} ${state}.`);
+
+// grab first and third items using array destructuring
+const item = ['Coffee (hot)', '$3.00', '$3.50', '$3.75'];
+const [itemName, , mediumPrice] = item;
+console.log(`A medium ${itemName} costs ${mediumPrice}`);
