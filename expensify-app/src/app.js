@@ -11,10 +11,6 @@ import './styles/style.scss';
 
 const store = configureStore();
 
-// addExpense -> Water bill
-// addExpense -> Gas bill
-// setTextFilter -> bill (2 items) -> water (1 item)
-// getVisibleExpenses -> print visibles ones to screen
 store.dispatch(addExpense({ description: 'Water bill'}));
 store.dispatch(addExpense({ description: 'Gas bill'}));
 store.dispatch(setTextFilter('bill'));
