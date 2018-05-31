@@ -16,7 +16,7 @@ beforeEach(() => {
       history={history}
       expense={expenses[2]}
     />
-  )
+  );
 });
 
 test('should render EditExpensePage', () => {
