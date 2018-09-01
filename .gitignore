@@ -1,2 +1,6 @@
 node_modules/
 public/dist/
+
+# in real world, this files must be ignored!
+#.env.test
+#.env.development
